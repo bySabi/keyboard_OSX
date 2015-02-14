@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<root>
+  <inputsourcedef>
+    <name>Spanish-PC-dev-ISO</name>
+    <inputsourceid_prefix>org.unknown.keylayout.Spanish-PC-dev-ISO</inputsourceid_prefix>
+  </inputsourcedef>
+
+  <item>
+    <name>bySabi settings</name>
+    <item>
+      <name>──────────────────────────────</name>
+      <appendix>* Only for developer keylayout</appendix>
+    </item>
+    <item>
+      <name>Shifts to Parentheses ()</name>
+      <appendix>When pressed alone, Left Shift types left paren (</appendix>
+      <appendix>When pressed alone, Right Shift types right paren )</appendix>
+      <appendix>When used with other keys, they're normal Shifts.</appendix>
+      <identifier>remap.spanish_programmer.shifts_parens</identifier>
+      <inputsource_only>Spanish-PC-dev-ISO</inputsource_only>
+      <modifier_not>
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::FN,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+      </modifier_not>
+
+      <!-- Pushing Shifts together produces () -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SHIFT_L, ModifierFlag::SHIFT_R,
+        KeyCode::KEY_8,
+        KeyCode::KEY_9,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::SHIFT_R, ModifierFlag::SHIFT_L,
+        KeyCode::KEY_8,
+        KeyCode::KEY_9,
+      </autogen>
+
+      <!-- This is the basic mapping. -->
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::SHIFT_R,
+        KeyCode::SHIFT_R,
+        KeyCode::KEY_9,
+      </autogen>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::SHIFT_L,
+        KeyCode::SHIFT_L,
+        KeyCode::KEY_8,
+      </autogen>
+    </item>
+    <item>
+      <name>Controls to Angle Brackets &lt;&gt;</name>
+      <appendix>When pressed alone, Left Control types less symbol &lt;</appendix>
+      <appendix>When pressed alone, Right Control types greater symbol &gt;</appendix>
+      <appendix>When used with other keys, they're normal Controls.</appendix>
+      <identifier>remap.spanish_programmer.controls_angle_brackets</identifier>
+      <inputsource_only>Spanish-PC-dev-ISO</inputsource_only>
+      <!-- This is the basic mapping. -->
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_R, ModifierFlag::CONTROL_R | ModifierFlag::NONE, KeyCode::CONTROL_R, KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_R</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_L, ModifierFlag::CONTROL_L | ModifierFlag::NONE, KeyCode::CONTROL_L,
+      KeyCode::DANISH_DOLLAR, ModifierFlag::NONE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_R, ModifierFlag::CAPSLOCK, KeyCode::CONTROL_R, KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_R</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_L, ModifierFlag::CAPSLOCK, KeyCode::CONTROL_L, KeyCode::DANISH_DOLLAR, ModifierFlag::NONE</autogen>
+      <!-- Pushing Controls together produces <> -->
+      <autogen>__KeyToKey__ KeyCode::CONTROL_L, ModifierFlag::CONTROL_R, KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_L, KeyCode::DANISH_DOLLAR, ModifierFlag::NONE</autogen>
+      <autogen>__KeyToKey__ KeyCode::CONTROL_R, ModifierFlag::CONTROL_L, KeyCode::DANISH_DOLLAR, ModifierFlag::NONE, KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_L</autogen>
+    </item>
+    <item><name>──────────────────────────────</name></item>
+    <item>
+      <name>Change OPTION_L + keys to COMMAND_L + keys</name>
+      <appendix>(correct "Copy-Paste, Undo & new item" keys mistakes)</appendix>
+    </item>
+    <item>
+      <name>OPTION_L + X (cut)</name>
+      <appendix>Alt + X -- to -- Win + X</appendix>
+      <identifier>remap.spanish_programmer.optionl_x</identifier>
+      <!-- Alt + X -->
+      <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::OPTION_L, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>OPTION_L + C (copy)</name>
+      <appendix>Alt + C -- to -- Win + C</appendix>
+      <identifier>remap.spanish_programmer.optionl_c</identifier>
+      <!-- Alt + C -->
+      <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::OPTION_L, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>OPTION_L + V (paste)</name>
+      <appendix>Alt + V -- to -- Win + V</appendix>
+      <identifier>remap.spanish_programmer.optionl_v</identifier>
+      <!-- Alt + V -->
+      <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::OPTION_L, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>OPTION_L + Z (undo)</name>
+      <appendix>Alt + Z -- to -- Win + Z</appendix>
+      <identifier>remap.spanish_programmer.optionl_z</identifier>
+      <!-- Alt + Z -->
+      <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::OPTION_L, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>OPTION_L + N (new item)</name>
+      <appendix>Alt + N -- to -- Win + N</appendix>
+      <identifier>remap.spanish_programmer.optionl_n</identifier>
+      <!-- Alt + N -->
+      <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::OPTION_L, KeyCode::N, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item><name>──────────────────────────────</name></item>
+    <item>
+      <name>Swap brace { and bracket ]</name>
+      <appendix>Open and close on the same keys</appendix>
+      <identifier>remap.spanish_programmer.swap_brace_bracket</identifier>
+      <!-- Move { to [ -->
+      <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::NONE, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::CAPSLOCK, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L</autogen>
+      <!-- Move ] to SHIFT+[ -->
+      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L, KeyCode::BRACKET_RIGHT, ModifierFlag::NONE</autogen>
+      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_R, KeyCode::BRACKET_RIGHT, ModifierFlag::NONE</autogen>
+    </item>
+    <item><name>──────────────────────────────</name></item>
+<item>
+    <name>Disables the keypress when you use the incorrect Shift key with a letter</name>
+    <appendix>Use the correct shift keys.</appendix>
+    <identifier>private.correct_shift_keys</identifier>
+
+    <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::R, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::T, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::A, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::S, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::D, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::F, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::G, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+
+    <autogen>--KeyToKey-- KeyCode::Y,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::U,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::I,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::O,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::P,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::H,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::J,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::K,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::L,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::N,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::M,         ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::COMMA,     ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::DOT,       ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+    <autogen>--KeyToKey-- KeyCode::QUOTE,     ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+</item>
+  </item>
+</root>
+
